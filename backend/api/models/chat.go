@@ -9,7 +9,7 @@ import (
 type Chat struct {
 	model.CommonModel
 	Type     string    `json:"type"`
-	Messages []Message `json:"messages,omitempty" gorm:"foreignkey:chat_id"`
+	Messages []Message `json:"messages" gorm:"foreignkey:chat_id"`
 	Users    []User    `json:"users,omitempty"`
 }
 
@@ -45,6 +45,7 @@ func (c *Chat) Between(auth uint, other uint) {
 		}
 
 		c.GetChatParticipant(auth)
+		c.Messages = []Message{}
 
 	}
 
