@@ -17,7 +17,6 @@ const Home = () => {
           type: "NEWCHATMESSAGE",
           message: msg
         })
-        break
       case "users_online":
         dispatch({
           type: "ONLINEUSERS",
