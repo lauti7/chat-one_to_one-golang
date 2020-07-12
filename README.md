@@ -11,10 +11,11 @@ Chat One to One built with GoLang Backend and ReactJS UI.
 3. Gorm ORM
 
 ## How to run ?
-1. Open your terminal and run: `cd $GOPATH`
-2. After that, run: `git clone https://github.com/lauti7/chat-onetoone-golang chat`
-3. Type: `cd chat/backend`.
-4. Run: `go get ./...` then run: `go run *.go`.
-5. Open a new terminal tab in root project folder and run: `cd chatapp && npm start`
+1. Create new database in MySql called `chatgolang`.
+2. Open your terminal and run: `cd $GOPATH`
+3. After that, run: `git clone https://github.com/lauti7/chat-onetoone-golang chat`
+4. Type: `cd chat/backend`.
+5. Run: `go get ./...` then run: `go run *.go`.
+6. Open a new terminal tab in root project folder and run: `cd chatapp && npm start`
 
 On port `:8080` is running Golang Backend and on port `:3000` is running React.
