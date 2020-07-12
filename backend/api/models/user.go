@@ -11,6 +11,13 @@ type User struct {
 	Chats    []Chat `json:"chats,omitempty"`
 }
 
+
+func (u *User) CreateUser(){
+	db := database.GetDatabase()
+
+	db.DB.Create(&u)
+}
+
 func GetAllUsers(authId string) []User {
 
 	var users []User
@@ -31,19 +38,6 @@ func GetUsername(id uint) string {
 	db.DB.Find(&user, id)
 
 	return user.Username
-}
-
-func CreateUser(username string) User {
-
-	user := User{
-		Username: username,
-	}
-
-	db := database.GetDatabase()
-
-	db.DB.Create(&user)
-
-	return user
 }
 
 func FindUser(id uint) User {
