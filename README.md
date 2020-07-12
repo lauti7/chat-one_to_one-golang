@@ -11,7 +11,7 @@ Chat One to One built with GoLang Backend and ReactJS UI.
 3. Gorm ORM
 
 ## How to run ?
-1. Create new database in MySql called `chatgolang`.
+1. Create new database in MySql with this name: `chatgolang`.
 2. Open your terminal and run: `cd $GOPATH`
 3. After that, run: `git clone https://github.com/lauti7/chat-onetoone-golang chat`
 4. Type: `cd chat/backend`.
