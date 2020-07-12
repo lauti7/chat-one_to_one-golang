@@ -9,15 +9,6 @@ type UserInput struct {
 	Username string `json:"user_name" binding:"required"`
 }
 
-type GetUserInput struct {
-	ID uint `json:id`
-}
-
-type UsersWithStatus struct {
-	User   userModel.User `json:"user"`
-	Online bool           `json:"online"`
-}
-
 func GetUsers(c *gin.Context) {
 
 	authId := c.Request.Header["Authorization"][0]
