@@ -30,7 +30,7 @@ func GetUsers(c *gin.Context) {
 
 }
 
-func CreateUser(c *gin.Context) {
+func New(c *gin.Context) {
 
 	var userInput UserInput
 
@@ -43,7 +43,11 @@ func CreateUser(c *gin.Context) {
 		})
 	}
 
-	newUser := userModel.CreateUser(userInput.Username)
+	newUser := userModel.User{
+		Username: userInput.Username,
+	}
+
+	newUser.CreateUser()
 
 	c.JSON(200, gin.H{
 		"user": newUser,
