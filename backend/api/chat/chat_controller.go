@@ -14,11 +14,7 @@ type ParticipantInput struct {
 	UserID uint `json:"user_id"`
 }
 
-type GetChatInput struct {
-	Participants [2]ParticipantInput `json:"participants" binding:"required"`
-}
-
-func CreateChat(c *gin.Context) {
+func GetChat(c *gin.Context) {
 	var chatInput CreateChatInput
 
 	err := c.ShouldBindJSON(&chatInput)
