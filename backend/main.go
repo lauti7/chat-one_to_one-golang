@@ -36,7 +36,7 @@ func main() {
 		api.GET("/users", userController.GetUsers)
 		api.POST("/users/new", userController.New)
 		api.POST("/users/login", userController.Login)
-		api.POST("/chat", chatController.CreateChat)
+		api.POST("/chat", chatController.GetChat)
 		api.GET("/ws", checkAndFindUser(), func(c *gin.Context) {
 			user, _ := c.Keys["user"]
 			usersManager.handleWS(c.Writer, c.Request, user)
