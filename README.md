@@ -1,7 +1,7 @@
 # chat-onetoone-golang
 Chat One to One built with GoLang Backend and ReactJS UI.
 
-## Presiquites
+## prerequisites
 1. GoLang Installed.
 2. MySql.
 
