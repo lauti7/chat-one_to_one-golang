@@ -1,9 +1,10 @@
 import React, {useReducer, useEffect} from 'react';
 import {AuthContext} from './auth.js'
-import './App.css';
+import {Container, Col, Row} from 'reactstrap'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/Login'
+import Register from './components/Register'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -34,15 +35,15 @@ if (initialState.isAuthenticated) {
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      localStorage.setItem("authId", JSON.stringify(action.authId))
-      localStorage.setItem("userName", JSON.stringify(action.userName))
-      let ws = connectToWS(action.authId)
+      localStorage.setItem("authId", JSON.stringify(action.user.id))
+      localStorage.setItem("userName", JSON.stringify(action.user.user_name))
+      let ws = connectToWS(action.user.id)
       console.log(action);
       return {
         ...state,
         isAuthenticated: true,
-        authId: action.authId,
-        userName: action.userName,
+        authId: action.user.id,
+        userName: action.user.user_name,
         ws: ws,
         currentChat: null
       }
@@ -100,14 +101,22 @@ const App = () => {
   return (
     <AuthContext.Provider value={{state, dispatch}} >
     <ToastContainer/>
-      <div className="App">
-        <NavBar/>
-        {
-          state.isAuthenticated ?
-            <Home/>
-          : <Login/>
-        }
-      </div>
+    <NavBar/>
+      {
+        state.isAuthenticated ?
+          <Home/>
+        :
+        <Container>
+          <Row>
+            <Col md={6}>
+              <Login/>
+            </Col>
+            <Col md={6}>
+              <Register/>
+            </Col>
+          </Row>
+        </Container>
+      }
     </AuthContext.Provider>
   );
 }
