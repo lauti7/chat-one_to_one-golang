@@ -11,12 +11,14 @@ import (
 
 var upgrader = websocket.Upgrader{}
 
+//Manager for WebSockets
 type UsersManager struct {
 	OnlineUsers       map[uint]OnlineUser
 	RegisterChannel   chan OnlineUser
 	UnregisterChannel chan OnlineUser
 }
 
+//Srtuct for Broadcasted Message
 type BroadcastMessage struct {
 	ID             string     `json:"id,omitempty"`
 	ChatID         uint       `json:"chat_id"`
@@ -26,6 +28,7 @@ type BroadcastMessage struct {
 	Type           string     `json:"type"`
 }
 
+//Struct for only one user online
 type OnlineUser struct {
 	SocketID      *websocket.Conn       `json:"-"`
 	ChatChannel   chan BroadcastMessage `json:"omitempty"`
@@ -34,6 +37,7 @@ type OnlineUser struct {
 	UserID        uint                  `json:"user_id" form:"user_id"`
 }
 
+//Struct for sending all users online
 type OnlineUsersMessage struct {
 	OnlineUsers []OnlineUser `json:"online_users"`
 	Type        string       `json:"type"`
