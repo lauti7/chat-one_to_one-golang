@@ -26,8 +26,7 @@ const Login = () => {
     .then(json => {
       dispatch({
         type: 'LOGIN',
-        authId: json.user.id,
-        userName: json.user.user_name
+        user: json.user
       })
     })
   }
