@@ -19,9 +19,15 @@ const OneToOneChat = () => {
       chat_id: state.currentChat.id,
       receiver_user_id: state.currentChat.users[0].id,
       content: message,
-      type: "chat"
+      type: "chat",
+      created_at: new Date().toISOString(),
+      user_id: state.authId
     }
     state.ws.send(JSON.stringify(newMsg))
+    dispatch({
+      type: "ADDNEWMESSAGE",
+      message: newMsg
+    })
   }
 
 
