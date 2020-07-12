@@ -34,7 +34,7 @@ func main() {
 		})
 
 		api.GET("/users", userController.GetUsers)
-		api.POST("/users", userController.CreateUser)
+		api.POST("/users/new", userController.New)
 		api.POST("/users/login", userController.Login)
 		api.POST("/chat", chatController.CreateChat)
 		api.GET("/ws", checkAndFindUser(), func(c *gin.Context) {
