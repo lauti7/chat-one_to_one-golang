@@ -12,7 +12,7 @@ const MessagesList = ({messagesList}) => {
         <div style={{height: '80vh', overflowY: "scroll"}}>
           {
             messagesList.length > 0 ?
-              messagesList.map(msg => <Message msg={msg}/> )
+              messagesList.map(msg => <Message key={msg.id} msg={msg}/> )
             : ''
           }
         </div>
