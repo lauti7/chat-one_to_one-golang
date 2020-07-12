@@ -88,7 +88,16 @@ const reducer = (state, action) => {
           ...state
         }
       }
-
+    case "ADDNEWMESSAGE":
+      let chatMessages = [...state.currentChat.messages, action.message]
+      console.log(chatMessages);
+      return {
+        ...state,
+        currentChat: {
+          ...state.currentChat,
+          messages: [...chatMessages]
+        }
+      }
   }
 }
 
